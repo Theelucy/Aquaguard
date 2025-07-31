@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AquaGuard - Smart Water Meter Dashboard</title>
+    <link rel="stylesheet" href="../CSS/connect_iot.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../JAVASCRIPT/connect_iot.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <img src="../ASSET/logo.jpg" alt="AquaGuard Logo" class="logo">
+        <h1>AquaGuard - Smart Water Meter Dashboard</h1>
+        <nav>
+            <ul>
+                
+                <li class="nav__item"><a href="./home.html" class="nav__link">Home</a></li>
+                <li class="nav__item"><a href="./dashboard.html" class="nav__link">Dashboard</a></li>
+                
+            </ul>
+        </nav>
+        <div class="header-buttons">
+            <button id="darkModeToggle" class="icon-button">&#x1F319;</button> <!-- Moon icon -->
+            
+            </select>
+        </div>
+    </header>
+
+    <section id="realtime" class="dashboard-section">
+        <h2>Real-Time Water Usage</h2>
+        <canvas id="usageChart" width="400" height="200"></canvas>
+        <p>Current water usage: <span id="current-usage">0</span> liters</p>
+    </section>
+
+    <section id="leak-detection" class="dashboard-section">
+        <h2>Leak Detection Alerts</h2>
+        <p id="leak-alert">No leaks detected.</p>
+    </section>
+
+    <section id="cost-tracking" class="dashboard-section">
+        <h2>Cost Tracking</h2>
+        <canvas id="costChart" width="400" height="200"></canvas>
+        <p>Estimated Monthly Cost: $<span id="monthly-cost">0.00</span></p>
+        <p>Water Saved This Month: <span id="water-saved">0</span> liters</p>
+    </section>
+
+    <div id="thought-bubble">
+      <div class="thought-content">
+          <p id="thought-heading">Did you know?</p>
+          <p id="did-you-know-fact">Interesting facts will appear here...</p>
+          
+      </div>
+      <div class="thought-dots">
+          <div></div>
+          <div></div>
+          <div></div>
+      </div>
+  </div>
+</main>
+
+   
+
+    
+
+    <footer>
+        <p>&copy; 2024 Aquaguard | Water Conservation Made Easy</p>
+    </footer>
+</body>
+
+</html>

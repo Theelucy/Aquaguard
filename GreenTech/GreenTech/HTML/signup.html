@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aquaguard - Sign Up</title>
+  <link rel="icon" type="image/png" href="../ASSET/logo.jpg">
+  <link rel="stylesheet" href="../CSS/signup.css">
+  <script src="../JAVASCRIPT/signup.js" defer></script>
+  <script src="https://kit.fontawesome.com/26a50bdc34.js" crossorigin="anonymous"></script>
+</head>
+
+<div id="splash-screen">
+  <img src="../ASSET/logo.jpg" alt="Aquaguard Logo" class="splash-logo">
+  <div id="loading-bar-container">
+    <div id="loading-bar"></div>
+  </div>
+</div>
+
+<body>
+  <header>
+    <div class="nav__container">
+      <div class="nav__logo--container">
+        <figure class="logo__container">
+          <img src="../ASSET/logo.jpg" alt="Aquaguard Logo" class="logo">
+        </figure>
+        <p class="nav__logo--text">Aquaguard</p>
+      </div>
+      <nav>
+        
+         
+         
+          
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <h2>Sign Up</h2>
+      <form id="signup-form" method="post">
+        <label for="fullname">Full Name:</label>
+        <input type="text" id="fullname" name="fullname" required>
+        <br>
+        <label for="signup-email">Email:</label>
+        <input type="email" id="signup-email" name="email" required>
+        <br>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <br>
+        <label for="signup-password">Password:</label>
+        <input type="password" id="signup-password" name="password" required>
+        <br>
+
+        <!-- <progress id="strength-bar" value="0" max="8"></progress> -->
+
+        <p>Already have an account? <a href="./login.html">Login</a></p>
+
+        <div id="button_container">
+          <button id="submit" type="submit">Submit</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <!-- Footer Section -->
+  <section id="footer">
+    <div class="footer__container">
+      <div class="footer__about">
+        <h3>Aquaguard</h3>
+        <p>Join us inconserving water using technology.</p>
+        <form class="newsletter__form" action="" method="get">
+          <input type="email" name="email" class="newsletter__input" placeholder="Enter your email address..." required>
+          <button type="submit" class="newsletter__btn">Sign Up</button>
+        </form>
+      </div>
+      <div class="footer__links">
+        <h3>Quick Links</h3>
+        <ul class="footer__links-list">
+          
+          <li class="footer__item"><a href="./dashboard.html" class="footer__link">Dashboard</a></li>
+          <li class="footer__item"><a href="./alerts.html" class="footer__link">Alerts</a></li>
+          <li class="footer__item"><a href="./help.html" class="footer__link">Help/Support</a></li>
+          <li class="footer__item"><a href="./setting.html" class="footer__link">Settings</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__social">
+        <h3>Follow Us</h3>
+        <ul class="footer__social-list">
+          <li class="footer__item">
+            <a href="#" class="footer__social-link">
+              <i class="fab fa-facebook footer__icon"></i> Facebook
+            </a>
+          </li>
+          <li class="footer__item">
+            <a href="#" class="footer__social-link">
+              <i class="fab fa-instagram footer__icon"></i> Instagram
+            </a>
+          </li>
+          <li class="footer__item">
+            <a href="#" class="footer__social-link">
+              <i class="fab fa-x-twitter footer__icon"></i> Twitter
+            </a>
+          </li>
+          <li class="footer__item">
+            <a href="#" class="footer__social-link">
+              <i class="fab fa-linkedin footer__icon"></i> LinkedIn
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Copyright Section -->
+  <section class="footer__copyright">
+    <p>&copy; 2024 Aquaguard. All rights reserved.</p>
+  </section>
+
+</body>
+
+</html>

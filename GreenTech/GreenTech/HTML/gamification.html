@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Picture Puzzle Game</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #cce7ff;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+            transition: background-color 0.3s;
+        }
+
+        h1 {
+            color: #005f87;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .puzzle-container {
+            width: 300px;
+            height: 300px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 5px;
+            margin: 0 auto;
+            border: 5px solid #0077b6;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+            background-color: #fff;
+        }
+
+        .tile {
+            width: 100px;
+            height: 100px;
+            cursor: pointer;
+            background-size: 300px 300px;
+            border: 2px solid #0077b6;
+            border-radius: 5px;
+            transition: transform 0.2s, background-color 0.3s;
+        }
+
+        .tile:hover {
+            transform: scale(1.05);
+            background-color: rgba(0, 119, 182, 0.1);
+        }
+
+        .empty {
+            background-color: transparent;
+        }
+
+        button, select {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #0077b6;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        button:hover, select:hover {
+            background-color: #005f87;
+            transform: translateY(-2px);
+        }
+
+        #timer {
+            font-size: 22px;
+            margin-top: 10px;
+            color: #0077b6;
+            font-weight: bold;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .close-btn {
+            background-color: #0077b6;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }<style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #cce7ff;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+            transition: background-color 0.3s;
+        }
+
+        h1 {
+            color: #005f87;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .puzzle-container {
+            width: 300px;
+            height: 300px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 5px;
+            margin: 0 auto;
+            border: 5px solid #0077b6;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+            background-color: #fff;
+        }
+
+        .tile {
+            width: 100px;
+            height: 100px;
+            cursor: pointer;
+            background-size: 300px 300px;
+            border: 2px solid #0077b6;
+            border-radius: 5px;
+            transition: transform 0.2s, background-color 0.3s;
+        }
+
+        .tile:hover {
+            transform: scale(1.05);
+            background-color: rgba(0, 119, 182, 0.1);
+        }
+
+        .empty {
+            background-color: transparent;
+        }
+
+        button, select {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #0077b6;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        button:hover, select:hover {
+            background-color: #005f87;
+            transform: translateY(-2px);
+        }
+
+        #timer {
+            font-size: 22px;
+            margin-top: 10px;
+            color: #0077b6;
+            font-weight: bold;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .close-btn {
+            background-color: #0077b6;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        .close-btn:hover {
+            background-color: #005f87;
+        }
+    </style>
+
+        .close-btn:hover {
+            background-color: #005f87;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="../HTML/home.html" class="home-link">Home</a>
+
+<h1>Picture Puzzle Game</h1>
+<p>Reconstruct the image by sliding the tiles into place.</p>
+<select id="imageSelector" onchange="startGame()">
+    <option value="../ASSET/download.jpeg">Puzzle 1</option>
+    <option value="../ASSET/save.webp">Puzzle 2</option>
+    <option value="../ASSET/waterislife.jpeg">Puzzle 3</option>
+    <option value="../ASSET/saveee water.jpeg">Puzzle 4</option>
+    <option value="../ASSET/images.jpeg">Puzzle 5</option>
+</select>
+<div id="points">Points: 0</div>
+<div id="totalPoints">Total Points: 0</div>
+<div id="timer">Time: 0.00 seconds</div>
+<div class="puzzle-container" id="puzzle">
+    <!-- Puzzle tiles will be generated here by JavaScript -->
+</div>
+
+<!-- Shuffle and Quit Buttons -->
+<button onclick="shuffleTiles()">Shuffle</button>
+<button onclick="quitGame()">Quit</button>
+
+<!-- Modal for showing messages -->
+<div id="messageModal" class="modal">
+    <div class="modal-content">
+        <p id="messageText"></p>
+        <button class="close-btn" onclick="closeModal()">Close</button>
+    </div>
+</div>
+
+<script>
+    let tiles = [0, 1, 2, 3, 4, 5, 6, 7];
+    tiles.push(-1);  
+    let timer;
+    let startTime;
+    let points = 0; // Initialize points for the current game
+    let totalPoints = 0; // Initialize total points across games
+    let imageUrl = '../ASSERTS/download.jpeg'; // Default image
+
+    // Function to start the timer
+    function startTimer() {
+        startTime = Date.now();
+        timer = setInterval(() => {
+            const elapsed = Date.now() - startTime;
+            document.getElementById('timer').innerText = `Time: ${(elapsed / 1000).toFixed(2)} seconds`;
+        }, 100);
+    }
+
+    // Function to stop the timer
+    function stopTimer() {
+        clearInterval(timer);
+    }
+
+    // Start the game by creating the puzzle
+    function startGame() {
+        imageUrl = document.getElementById('imageSelector').value; // Get selected image
+        points = 0; // Reset points for the new game
+        document.getElementById('points').innerText = `Points: ${points}`; // Update points display
+        startTimer();
+        createPuzzle();
+    }
+
+    // Function to create the puzzle layout
+    function createPuzzle() {
+        const puzzleContainer = document.getElementById('puzzle');
+        puzzleContainer.innerHTML = '';  // Clear the container
+        tiles.forEach((tile, index) => {
+            const tileElement = document.createElement('div');
+            tileElement.classList.add('tile');
+
+            if (tile === -1) {
+                tileElement.classList.add('empty');  // Mark empty space
+            } else {
+                // Set background image for the tile
+                const row = Math.floor(tile / 3);
+                const col = tile % 3;
+                tileElement.style.backgroundImage = `url('${imageUrl}')`;
+                tileElement.style.backgroundPosition = `-${col * 100}px -${row * 100}px`;
+                tileElement.addEventListener('click', () => moveTile(tile));
+            }
+            puzzleContainer.appendChild(tileElement);
+        });
+    }
+
+    // Function to move a tile
+    function moveTile(tile) {
+        const tileIndex = tiles.indexOf(tile);
+        const emptyIndex = tiles.indexOf(-1);
+        
+        // Check if the tile can be moved (it must be adjacent to the empty space)
+        if ([tileIndex - 1, tileIndex + 1, tileIndex - 3, tileIndex + 3].includes(emptyIndex)) {
+            tiles[emptyIndex] = tile;
+            tiles[tileIndex] = -1;
+            points++; // Increase points for valid move
+            document.getElementById('points').innerText = `Points: ${points}`; // Update points display
+            createPuzzle();
+            checkWin();  // Check if the user has won
+        }
+    }
+
+    // Function to shuffle the puzzle tiles
+    function shuffleTiles() {
+        for (let i = tiles.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [tiles[i], tiles[j]] = [tiles[j], tiles[i]];  // Swap elements
+        }
+        createPuzzle();
+    }
+
+    // Function to quit the game
+    function quitGame() {
+        stopTimer();
+        const timeTaken = (Date.now() - startTime) / 1000;
+        showModal(`You have decided to quit the game. Your time: ${timeTaken.toFixed(2)} seconds. Points earned: ${points}. Total Points: ${totalPoints}. Better luck next time!`);
+    }
+
+    // Function to check if the puzzle is solved
+    function checkWin() {
+        if (tiles.join() === [0, 1, 2, 3, 4, 5, 6, 7, -1].join()) {
+            stopTimer();
+            totalPoints += points; // Add points earned in this game to total points
+            const timeTaken = (Date.now() - startTime) / 1000;
+            showModal(`Congratulations! You've successfully completed the puzzle in ${timeTaken.toFixed(2)} seconds. Points earned: ${points}. Total Points: ${totalPoints}.`);
+            document.getElementById('totalPoints').innerText = `Total Points: ${totalPoints}`; // Update total points display
+        }
+    }
+
+    // Function to display a custom message in a modal
+    function showModal(message) {
+        document.getElementById('messageText').innerText = message;
+        document.getElementById('messageModal').style.display = 'flex';
+        clearPuzzle(); // Clear the puzzle after displaying the modal
+    }
+
+    // Function to close the modal
+    function closeModal() {
+        document.getElementById('messageModal').style.display = 'none';
+    }
+
+    // Function to clear the puzzle board
+    function clearPuzzle() {
+        document.getElementById('puzzle').innerHTML = '';  // Clear the puzzle container
+        document.getElementById('timer').innerText = 'Time: 0.00 seconds';  // Reset the timer display
+    }
+
+    // Start the game when the script loads
+    startGame();
+</script>
+
+</body>
+</html>

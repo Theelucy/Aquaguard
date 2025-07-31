@@ -1,0 +1,175 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+/* Header Styles */
+header {
+  background-color: #e0f7dc;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #0d522c;
+}
+
+.nav__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.nav__logo--container {
+  display: flex;
+  align-items: center;
+}
+
+.logo__container {
+  margin-right: 10px;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+}
+
+.nav__logo--text {
+  color: #0d522c;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+nav {
+  flex-grow: 1;
+}
+
+.nav__links {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+  padding: 0;
+}
+
+.nav__item {
+  margin: 0 10px;
+}
+
+.nav__link {
+  text-decoration: none;
+  color: #0d522c;
+  font-weight: bold;
+}
+
+.nav__link:hover {
+  color: #056b2b;
+}
+
+/* Main Content Styles */
+main {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+main h2 {
+  margin-top: 0;
+}
+
+form label,
+form input {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+form input {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}g
+
+form button {
+  padding: 10px 20px;
+  background-color: #0d522c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #0a421f;
+}
+
+/* Footer Styles */
+#footer {
+  background-color: #e0f7dc;
+  color: #333;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footer__container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.footer__about,
+.footer__links,
+.footer__social {
+  max-width: 300px;
+  margin-bottom: 20px;
+}
+
+.footer__about p,
+.footer__links-list,
+.footer__social-list {
+  margin: 0;
+}
+
+.footer__links-list,
+.footer__social-list {
+  list-style: none;
+  padding: 0;
+}
+
+.footer__item {
+  margin-bottom: 10px;
+}
+
+.footer__link,
+.footer__social-link {
+  color: #0d522c;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer__link:hover,
+.footer__social-link:hover {
+  text-decoration: underline;
+}
+
+.footer__icon {
+  margin-right: 5px;
+  color: #0d522c;
+}
+
+/* Copyright Section */
+.footer__bottom {
+  background-color: #0d522c;
+  color: white;
+  padding: 10px 0;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
